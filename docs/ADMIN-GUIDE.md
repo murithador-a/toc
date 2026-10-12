@@ -393,7 +393,8 @@ the server**. A host with nowhere to write cannot run it, however well it serves
    `server/data/` is deliberately not in the repository, so a fresh deployment always starts empty.
    Set the password there once, or set `ADMIN_PASSWORD` in the host's environment variables.
 4. If `/admin` says the API cannot be reached, the admin was not deployed at all — a static host such
-   as Vercel, Netlify or GitHub Pages has no Node process to answer `/api/*`. See README §9.
+   as Vercel, Netlify or GitHub Pages has no Node process to answer `/api/*`. See README §9, or the
+   shorter checklist in `docs/DEPLOY.md`.
 
 In the admin itself, **Settings → This installation** shows “Saving changes” and “Site build”, so the
 two questions that matter — *can this deployment store anything?* and *is a built site being served?*

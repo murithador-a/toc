@@ -266,6 +266,9 @@ The public site is plain static files. **The admin is not** — it reads and wri
 files on disk through the API, so it needs a long-lived Node process and one
 writable directory. That single fact decides everything below.
 
+A one-page version of this section, ordered as a checklist, is in
+[docs/DEPLOY.md](docs/DEPLOY.md).
+
 ### 9.1 Before you blame the app: run the doctor
 
 On the host, from the project directory, with the same environment the running
