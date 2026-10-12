@@ -1,0 +1,36 @@
+{
+  "name": "toc-luxury-constructions",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Website for TOC Luxury Constructions Ltd, Osogbo, Osun State, Nigeria.",
+  "scripts": {
+    "dev": "node tools/dev.mjs",
+    "dev:site": "vite",
+    "dev:api": "node --watch server/index.js",
+    "build": "tsc --noEmit && vite build",
+    "start": "node tools/start.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "content:validate": "node tools/validate-content.mjs",
+    "admin:hash": "node tools/hash-password.mjs"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9"
+  }
+}

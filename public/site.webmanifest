@@ -1,0 +1,12 @@
+{
+  "name": "TOC Luxury Constructions Ltd",
+  "short_name": "TOC Luxury",
+  "description": "Building construction, luxury residential homes, structural works and project supervision in Osogbo, Osun State, Nigeria.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F2EC",
+  "theme_color": "#F5F2EC",
+  "icons": [
+    { "src": "/logo/toc-monogram.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

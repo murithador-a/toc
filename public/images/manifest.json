@@ -1,0 +1,585 @@
+{
+  "hero-residence": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Contemporary low-rise residence with swimming pool",
+    "source": "https://unsplash.com/photos/1600596542815-ffad4c1539a9",
+    "files": [
+      {
+        "src": "/images/hero-residence-1920.webp",
+        "width": 1920,
+        "height": 1273
+      },
+      {
+        "src": "/images/hero-residence-1280.webp",
+        "width": 1280,
+        "height": 849
+      },
+      {
+        "src": "/images/hero-residence-800.webp",
+        "width": 800,
+        "height": 531
+      }
+    ]
+  },
+  "about-planning": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Drawings and scale rule on a design desk",
+    "source": "https://unsplash.com/photos/1503387762-592deb58ef4e",
+    "files": [
+      {
+        "src": "/images/about-planning-1200.webp",
+        "width": 1200,
+        "height": 675
+      },
+      {
+        "src": "/images/about-planning-700.webp",
+        "width": 700,
+        "height": 394
+      }
+    ]
+  },
+  "about-finishing": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Interior living space with full-height glazing",
+    "source": "https://unsplash.com/photos/1600566753086-00f18fb6b3ea",
+    "files": [
+      {
+        "src": "/images/about-finishing-1200.webp",
+        "width": 1200,
+        "height": 800
+      },
+      {
+        "src": "/images/about-finishing-700.webp",
+        "width": 700,
+        "height": 467
+      }
+    ]
+  },
+  "site-structure": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Reinforcement and formwork on a building structure",
+    "source": "https://unsplash.com/photos/1504307651254-35680f356dfd",
+    "files": [
+      {
+        "src": "/images/site-structure-1200.webp",
+        "width": 1200,
+        "height": 795
+      },
+      {
+        "src": "/images/site-structure-700.webp",
+        "width": 700,
+        "height": 464
+      }
+    ]
+  },
+  "service-building": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Building structure under construction with steel reinforcement",
+    "source": "https://unsplash.com/photos/1504307651254-35680f356dfd",
+    "files": [
+      {
+        "src": "/images/service-building-1400.webp",
+        "width": 1400,
+        "height": 928
+      },
+      {
+        "src": "/images/service-building-900.webp",
+        "width": 900,
+        "height": 596
+      },
+      {
+        "src": "/images/service-building-600.webp",
+        "width": 600,
+        "height": 398
+      }
+    ]
+  },
+  "service-residential": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Modern residence with timber soffit and pool terrace",
+    "source": "https://unsplash.com/photos/1613490493576-7fde63acd811",
+    "files": [
+      {
+        "src": "/images/service-residential-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/service-residential-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/service-residential-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "service-structural": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Large slab and ground works with site team",
+    "source": "https://unsplash.com/photos/1541888946425-d81bb19240f5",
+    "files": [
+      {
+        "src": "/images/service-structural-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/service-structural-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/service-structural-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "service-supervision": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Architect reviewing construction drawings",
+    "source": "https://unsplash.com/photos/1600585154526-990dced4db0d",
+    "files": [
+      {
+        "src": "/images/service-supervision-1400.webp",
+        "width": 1400,
+        "height": 2100
+      },
+      {
+        "src": "/images/service-supervision-900.webp",
+        "width": 900,
+        "height": 1350
+      },
+      {
+        "src": "/images/service-supervision-600.webp",
+        "width": 600,
+        "height": 900
+      }
+    ]
+  },
+  "p1-a": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Contemporary residence exterior and pool",
+    "source": "https://unsplash.com/photos/1600596542815-ffad4c1539a9",
+    "files": [
+      {
+        "src": "/images/p1-a-1400.webp",
+        "width": 1400,
+        "height": 928
+      },
+      {
+        "src": "/images/p1-a-900.webp",
+        "width": 900,
+        "height": 597
+      },
+      {
+        "src": "/images/p1-a-600.webp",
+        "width": 600,
+        "height": 398
+      }
+    ]
+  },
+  "p1-b": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Dining area with bespoke joinery",
+    "source": "https://unsplash.com/photos/1600607687920-4e2a09cf159d",
+    "files": [
+      {
+        "src": "/images/p1-b-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/p1-b-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/p1-b-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "p1-c": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Lounge opening to pool terrace",
+    "source": "https://unsplash.com/photos/1600573472550-8090b5e0745e",
+    "files": [
+      {
+        "src": "/images/p1-c-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/p1-c-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/p1-c-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "p2-a": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Two-storey residence with landscaped frontage",
+    "source": "https://unsplash.com/photos/1600047509807-ba8f99d2cdde",
+    "files": [
+      {
+        "src": "/images/p2-a-1400.webp",
+        "width": 1400,
+        "height": 1174
+      },
+      {
+        "src": "/images/p2-a-900.webp",
+        "width": 900,
+        "height": 755
+      },
+      {
+        "src": "/images/p2-a-600.webp",
+        "width": 600,
+        "height": 503
+      }
+    ]
+  },
+  "p2-b": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Residential elevation with mature planting",
+    "source": "https://unsplash.com/photos/1600607688960-e095ff83135c",
+    "files": [
+      {
+        "src": "/images/p2-b-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/p2-b-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/p2-b-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "p2-c": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Kitchen with island and integrated appliances",
+    "source": "https://unsplash.com/photos/1600566752229-250ed79470f8",
+    "files": [
+      {
+        "src": "/images/p2-c-1400.webp",
+        "width": 1400,
+        "height": 969
+      },
+      {
+        "src": "/images/p2-c-900.webp",
+        "width": 900,
+        "height": 623
+      },
+      {
+        "src": "/images/p2-c-600.webp",
+        "width": 600,
+        "height": 415
+      }
+    ]
+  },
+  "p3-a": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Modern residence with timber ceiling and pool",
+    "source": "https://unsplash.com/photos/1613490493576-7fde63acd811",
+    "files": [
+      {
+        "src": "/images/p3-a-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/p3-a-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/p3-a-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "p3-b": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Open-plan kitchen and living space",
+    "source": "https://unsplash.com/photos/1600585152220-90363fe7e115",
+    "files": [
+      {
+        "src": "/images/p3-b-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/p3-b-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/p3-b-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "p3-c": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Bathroom with stone finishes",
+    "source": "https://unsplash.com/photos/1600566752355-35792bedcfea",
+    "files": [
+      {
+        "src": "/images/p3-c-1400.webp",
+        "width": 1400,
+        "height": 2100
+      },
+      {
+        "src": "/images/p3-c-900.webp",
+        "width": 900,
+        "height": 1350
+      },
+      {
+        "src": "/images/p3-c-600.webp",
+        "width": 600,
+        "height": 900
+      }
+    ]
+  },
+  "p4-a": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Timber-clad house with walled courtyard",
+    "source": "https://unsplash.com/photos/1600566753190-17f0baa2a6c3",
+    "files": [
+      {
+        "src": "/images/p4-a-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/p4-a-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/p4-a-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "p4-b": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Living room with full-height glazing",
+    "source": "https://unsplash.com/photos/1600607687939-ce8a6c25118c",
+    "files": [
+      {
+        "src": "/images/p4-b-1400.webp",
+        "width": 1400,
+        "height": 952
+      },
+      {
+        "src": "/images/p4-b-900.webp",
+        "width": 900,
+        "height": 612
+      },
+      {
+        "src": "/images/p4-b-600.webp",
+        "width": 600,
+        "height": 408
+      }
+    ]
+  },
+  "p4-c": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "House facade lit at dusk",
+    "source": "https://unsplash.com/photos/1600585153490-76fb20a32601",
+    "files": [
+      {
+        "src": "/images/p4-c-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/p4-c-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/p4-c-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "p5-a": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Ground slab and structure works with site team",
+    "source": "https://unsplash.com/photos/1541888946425-d81bb19240f5",
+    "files": [
+      {
+        "src": "/images/p5-a-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/p5-a-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/p5-a-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "p5-b": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Reinforcement cages and formwork",
+    "source": "https://unsplash.com/photos/1504307651254-35680f356dfd",
+    "files": [
+      {
+        "src": "/images/p5-b-1400.webp",
+        "width": 1400,
+        "height": 928
+      },
+      {
+        "src": "/images/p5-b-900.webp",
+        "width": 900,
+        "height": 596
+      },
+      {
+        "src": "/images/p5-b-600.webp",
+        "width": 600,
+        "height": 398
+      }
+    ]
+  },
+  "p5-c": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Drawing review on site documentation",
+    "source": "https://unsplash.com/photos/1600585154526-990dced4db0d",
+    "files": [
+      {
+        "src": "/images/p5-c-1400.webp",
+        "width": 1400,
+        "height": 2100
+      },
+      {
+        "src": "/images/p5-c-900.webp",
+        "width": 900,
+        "height": 1350
+      },
+      {
+        "src": "/images/p5-c-600.webp",
+        "width": 600,
+        "height": 900
+      }
+    ]
+  },
+  "p6-a": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Dark contemporary residence among mature trees",
+    "source": "https://unsplash.com/photos/1600585154340-be6161a56a0c",
+    "files": [
+      {
+        "src": "/images/p6-a-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/p6-a-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/p6-a-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "p6-b": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Residence under mature canopy",
+    "source": "https://unsplash.com/photos/1600607688969-a5bfcd646154",
+    "files": [
+      {
+        "src": "/images/p6-b-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/p6-b-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/p6-b-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  },
+  "p6-c": {
+    "temporary": true,
+    "credit": "Unsplash",
+    "description": "Interior joinery detail",
+    "source": "https://unsplash.com/photos/1600607687920-4e2a09cf159d",
+    "files": [
+      {
+        "src": "/images/p6-c-1400.webp",
+        "width": 1400,
+        "height": 934
+      },
+      {
+        "src": "/images/p6-c-900.webp",
+        "width": 900,
+        "height": 600
+      },
+      {
+        "src": "/images/p6-c-600.webp",
+        "width": 600,
+        "height": 400
+      }
+    ]
+  }
+}

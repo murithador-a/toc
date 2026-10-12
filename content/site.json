@@ -1,0 +1,933 @@
+{
+  "meta": {
+    "version": 20,
+    "updatedAt": "2026-10-12T17:05:23.997Z"
+  },
+  "seo": {
+    "siteUrl": "https://www.tocluxuryconstructions.com",
+    "defaultTitle": "TOC Luxury Constructions Ltd | Construction Company in Osogbo, Osun State",
+    "defaultDescription": "TOC Luxury Constructions Ltd is a construction company at USTEEM Junction, Agunbelewo, Osogbo, Osun State. Building construction, luxury residential homes, structural works and project supervision.",
+    "ogImage": "/images/og-toc.jpg"
+  },
+  "company": {
+    "legalName": "TOC Luxury Constructions Ltd",
+    "shortName": "TOC Luxury Constructions",
+    "monogram": "TOC",
+    "strapline": "Building with purpose. Designed to last.",
+    "address": {
+      "street": "USTEEM Junction, Agunbelewo",
+      "locality": "Osogbo",
+      "postalCode": "230103",
+      "region": "Osun State",
+      "country": "Nigeria",
+      "countryCode": "NG"
+    },
+    "addressFull": "USTEEM Junction, Agunbelewo, Osogbo 230103, Osun State, Nigeria",
+    "addressShort": "Osogbo, Osun State, Nigeria",
+    "phone": {
+      "display": "0805 783 8376",
+      "tel": "+2348057838376"
+    },
+    "whatsapp": {
+      "number": "2348057838376",
+      "display": "0805 783 8376",
+      "opener": "Hello TOC Luxury Constructions Ltd. I would like to discuss a construction project. Please let me know how we can proceed.",
+      "note": "Opening WhatsApp transfers the conversation to WhatsApp. It does not confirm a booking, appointment or quotation."
+    },
+    "maps": {
+      "listingUrl": "https://maps.app.goo.gl/p3aUfcG9oYq8D1zx8",
+      "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=7.8084471,4.5324538",
+      "lat": 7.8084471,
+      "lng": 4.5324538,
+      "osmEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=4.5125%2C7.7984%2C4.5525%2C7.8184&layer=mapnik&marker=7.8084471%2C4.5324538",
+      "osmLink": "https://www.openstreetmap.org/?mlat=7.8084471&mlon=4.5324538#map=16/7.8084471/4.5324538"
+    },
+    "hasOpeningHours": false,
+    "openingHours": "",
+    "email": "",
+    "hasEmail": false
+  },
+  "menu": [
+    {
+      "label": "Home",
+      "to": "/"
+    },
+    {
+      "label": "About",
+      "to": "/about"
+    },
+    {
+      "label": "Services",
+      "to": "/services"
+    },
+    {
+      "label": "Projects",
+      "to": "/projects"
+    },
+    {
+      "label": "Contact",
+      "to": "/contact"
+    }
+  ],
+  "home": {
+    "hero": {
+      "eyebrow": "Construction · Project Delivery · Consultancy",
+      "headline": "Building with Purpose.",
+      "headlineAccent": "Designed to Last.",
+      "subhead": "From residential construction to structural works and project consultancy, TOC Luxury Constructions delivers considered building solutions shaped around your vision.",
+      "image": {
+        "src": "/images/hero-residence-1920.webp",
+        "srcset": "/images/hero-residence-1920.webp 1920w, /images/hero-residence-1280.webp 1280w, /images/hero-residence-800.webp 800w",
+        "width": 1920,
+        "height": 1273,
+        "alt": "A contemporary low-rise residence with a swimming pool and stepped terrace, used as reference architecture imagery",
+        "focal": "50% 55%"
+      },
+      "imageNote": "Reference imagery — TOC project photography to follow",
+      "primaryCtaLabel": "Explore Our Projects",
+      "secondaryCtaLabel": "Request a Quote"
+    },
+    "capability": {
+      "enabled": true
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About TOC",
+      "breadcrumb": "About",
+      "heading": "Built on Planning.",
+      "headingAccent": "Defined by Quality.",
+      "intro": "A construction company working from Osogbo, Osun State — delivering building construction, luxury residential homes, structural works and project supervision for clients who want the work done properly the first time."
+    },
+    "sectionHeading": "A considered way to build",
+    "sectionHeadingAccent": "",
+    "paragraphs": [
+      "Construction goes wrong in predictable ways: a scope that was never fully agreed, materials chosen at the last minute, changes that arrive after the concrete has set. Our approach is built around removing those gaps.",
+      "We start with the brief and the site. We agree what is included, in what order it will be built, and the standard it will be finished to. Then we build it in defined stages, with one team responsible for the work from start to finish and with progress reported as it happens.",
+      "TOC Luxury Constructions Ltd operates from USTEEM Junction, Agunbelewo, Osogbo. Clients come to us with a plot and an idea, with drawings ready for construction, or with work in progress that needs proper supervision. In each case the question is the same: what does it take to deliver this properly?"
+    ],
+    "imageSmall": {
+      "src": "/images/about-planning-1200.webp",
+      "srcset": "/images/about-planning-1200.webp 1200w, /images/about-planning-700.webp 700w",
+      "width": 1200,
+      "height": 675,
+      "alt": "Construction drawings and a scale rule laid out on a design desk during project planning",
+      "focal": "50% 50%"
+    },
+    "imageLarge": {
+      "src": "/images/about-finishing-1200.webp",
+      "srcset": "/images/about-finishing-1200.webp 1200w, /images/about-finishing-700.webp 700w",
+      "width": 1200,
+      "height": 800,
+      "alt": "Interior living space with full-height glazing and a restrained material palette",
+      "focal": "50% 55%"
+    },
+    "imageNote": "Reference imagery — TOC site and project photography to be supplied",
+    "principlesHeading": "How we work",
+    "principles": [
+      {
+        "title": "Plan before you build",
+        "body": "Scope, sequence and materials are settled before work starts. On a construction site the cheapest corrections happen on paper, not in concrete."
+      },
+      {
+        "title": "Build to the drawings",
+        "body": "Work follows the drawings and specifications issued for the project, and the engineering input that accompanies them. Where something does not work on site, it comes back as a question before it becomes a change."
+      },
+      {
+        "title": "Report honestly",
+        "body": "Progress, material choices and anything that affects cost or programme are raised as they arise — while there is still time to make a decision."
+      }
+    ],
+    "missionLabel": "Mission",
+    "mission": "To deliver construction work that clients can rely on: properly planned, honestly reported, and finished to the standard that was agreed.",
+    "visionLabel": "Vision",
+    "vision": "To be the construction partner that clients in Osogbo and across Osun State return to, and recommend, because the work stands up.",
+    "photographyLabel": "Site & team photography",
+    "photographyCaption": "Space reserved for genuine TOC site photography, team portraits and project documentation. Nothing is filled with stock imagery here.",
+    "note": "founding year, years of experience, team size, professional registrations or licences, and any certifications. None of these are published until the company supplies the verified details.",
+    "preview": {
+      "eyebrow": "About TOC",
+      "heading": "Built on Planning. ",
+      "headingAccent": "Defined by Quality.",
+      "paragraphs": [
+        "TOC Luxury Constructions Ltd is a construction company based at USTEEM Junction, Agunbelewo, in Osogbo, Osun State. We build for clients who want the work done properly — planned before it starts, supervised while it runs, and finished to the standard that was agreed.",
+        "The approach is straightforward: understand the brief, agree the scope in writing, execute in defined stages, and report honestly at every stage. Structure, materials and finishing are treated as one continuous decision rather than three separate ones."
+      ],
+      "pillars": [
+        {
+          "title": "Planning",
+          "body": "Scope and sequence agreed before works begin"
+        },
+        {
+          "title": "Structure",
+          "body": "Work executed to the drawings issued for the project"
+        },
+        {
+          "title": "Finish",
+          "body": "Materials and detailing chosen to age well"
+        }
+      ],
+      "linkLabel": "More About Us",
+      "note": "Company history, mission and vision statements are drafted on the About page and await confirmation from TOC."
+    }
+  },
+  "services": {
+    "eyebrow": "Services",
+    "heading": "Four ways we ",
+    "headingAccent": "build for clients",
+    "intro": "Each service is delivered as a defined scope with agreed stages, so you always know what is being done, what it costs and what comes next.",
+    "notice": "These descriptions are written for review. TOC will confirm the exact scope of each service before launch, including any specialist capability, registration or certification the company holds and wishes to publish.",
+    "items": [
+      {
+        "slug": "building-construction",
+        "index": "01",
+        "title": "Building Construction",
+        "tagline": "Complete building works, coordinated from first activity on site to the final finish.",
+        "summary": "Complete building works, coordinated from the first site activity through to the final finish.",
+        "body": [
+          "We build from approved drawings and specifications, coordinating the sequence of work on site — setting out and foundation works, the structural frame and blockwork, roofing, services first-fix, plastering and floor and wall finishes, joinery, and the external works that complete a building.",
+          "One site team stays responsible for the work from start to finish. Progress, materials and anything that affects cost or programme are reported as they arise, so decisions are made on current information rather than assumption."
+        ],
+        "scopeLabel": "Typical scope",
+        "scope": [
+          "Site setting out and foundation works",
+          "Structural frame, blockwork and roofing",
+          "Coordination of plumbing and electrical services with your appointed trades",
+          "Plastering, tiling, painting and general finishing",
+          "Joinery, ironmongery and fittings",
+          "External works, drainage and paving"
+        ],
+        "image": {
+          "src": "/images/service-building-1400.webp",
+          "srcset": "/images/service-building-1400.webp 1400w, /images/service-building-900.webp 900w, /images/service-building-600.webp 600w",
+          "width": 1400,
+          "height": 928,
+          "alt": "Steel reinforcement and formwork on a building structure under construction, used as reference imagery",
+          "focal": "50% 45%"
+        },
+        "published": true
+      },
+      {
+        "slug": "luxury-residential-homes",
+        "index": "02",
+        "title": "Luxury Residential Homes",
+        "tagline": "Homes built around how you live — good layouts, honest materials, durable finishes.",
+        "summary": "Homes built around how you actually live — considered layouts, honest materials, finishes that hold up.",
+        "body": [
+          "A house is decided long before the finishing stage: in how rooms are oriented, how living spaces relate to each other, where light and air move through the plan, storage that disappears into the walls, and materials chosen for how they age rather than how they photograph.",
+          "We build private homes from your brief and the drawings prepared for your project, advising on buildable details, material selection and finishing standards at each stage — and finishing the house to the standard it was designed for."
+        ],
+        "scopeLabel": "Typical scope",
+        "scope": [
+          "Layout, material and finishing review before work begins",
+          "Structural frame and shell construction",
+          "Roofing, waterproofing and weatherproofing details",
+          "Premium finishes — plaster, tiling, paint and joinery",
+          "Kitchen, wardrobe and bespoke joinery work",
+          "External works ready for landscaping"
+        ],
+        "image": {
+          "src": "/images/service-residential-1400.webp",
+          "srcset": "/images/service-residential-1400.webp 1400w, /images/service-residential-900.webp 900w, /images/service-residential-600.webp 600w",
+          "width": 1400,
+          "height": 934,
+          "alt": "Modern residence with a timber soffit and pool terrace, used as reference imagery",
+          "focal": "50% 55%"
+        },
+        "published": true
+      },
+      {
+        "slug": "civil-structural-works",
+        "index": "03",
+        "title": "Civil Engineering & Structural Works",
+        "tagline": "Reinforced concrete and structural packages, built accurately to the issued drawings.",
+        "summary": "Reinforced concrete and structural packages executed accurately to the drawings and engineering input issued for each project.",
+        "body": [
+          "We carry out structural and civil works packages: setting out, excavation and earthworks, reinforcement fixing, formwork, concrete placement and curing, columns, beams, slabs and retaining structures, drainage and external hardworks.",
+          "Work follows the drawings and specifications issued for the project. Structural design and engineering certification are provided by the design professionals appointed to each project — we build to their instructions, and the work is checked and recorded as it progresses."
+        ],
+        "scopeLabel": "Typical scope",
+        "scope": [
+          "Setting out, excavation and earthworks",
+          "Reinforcement fixing and formwork",
+          "Concrete placement, compaction and curing",
+          "Columns, beams, slabs and retaining structures",
+          "Blockwork and structural infill",
+          "Drainage, culverts and external hardworks"
+        ],
+        "image": {
+          "src": "/images/service-structural-1400.webp",
+          "srcset": "/images/service-structural-1400.webp 1400w, /images/service-structural-900.webp 900w, /images/service-structural-600.webp 600w",
+          "width": 1400,
+          "height": 934,
+          "alt": "Ground slab and structural works in progress with a site team, used as reference imagery",
+          "focal": "50% 50%"
+        },
+        "published": true
+      },
+      {
+        "slug": "project-supervision-consultancy",
+        "index": "04",
+        "title": "Project Supervision & Consultancy",
+        "tagline": "A competent presence on your behalf: oversight, progress checks and clear reporting.",
+        "summary": "An informed, competent presence on site — progress, workmanship, materials and clear reporting for owners.",
+        "body": [
+          "Not every client needs a contractor. Some need someone competent to stand on their behalf. We supervise and coordinate building work: checking that it follows the approved drawings and specification, monitoring workmanship and material quality, tracking progress against programme, and reporting to the owner in plain language.",
+          "Engagements are scoped to what is genuinely required — a periodic site visit with a written report, full supervision of a package of works, or an independent view before you commit to a contractor, a material order or a purchase."
+        ],
+        "scopeLabel": "Typical scope",
+        "scope": [
+          "Review of drawings, scope and specification",
+          "Site inspection and workmanship checks",
+          "Progress monitoring against programme",
+          "Material and quantity checks",
+          "Written progress reporting",
+          "Advice on variations and next steps"
+        ],
+        "image": {
+          "src": "/images/service-supervision-1400.webp",
+          "srcset": "/images/service-supervision-1400.webp 1400w, /images/service-supervision-900.webp 900w, /images/service-supervision-600.webp 600w",
+          "width": 1400,
+          "height": 2100,
+          "alt": "Drawings being reviewed at a desk by a member of the project team, used as reference imagery",
+          "focal": "50% 30%"
+        },
+        "published": true
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Portfolio",
+    "heading": "Work that speaks ",
+    "headingAccent": "for itself",
+    "intro": "The portfolio is being assembled from verified project records and genuine site photography. Until those are supplied, this page shows the layout and the level of detail each project will carry.",
+    "homeHeading": "The portfolio, ",
+    "homeHeadingAccent": "built on evidence",
+    "homeIntro": "A construction portfolio should show the work itself. These entries show how each project will be presented — imagery, project type, location and the scope that was delivered.",
+    "notice": "Every entry is a layout placeholder populated with licensed reference imagery. No company project name, location, completion date, value or specification is published here until it has been verified with TOC, and no stock photograph is ever presented as completed TOC work.",
+    "categories": [
+      {
+        "key": "residential-construction",
+        "label": "Residential Construction"
+      },
+      {
+        "key": "luxury-residential-homes",
+        "label": "Luxury Residential Homes"
+      },
+      {
+        "key": "structural-works",
+        "label": "Structural Works"
+      }
+    ],
+    "items": [
+      {
+        "slug": "portfolio-entry-01",
+        "title": "Portfolio Entry 01",
+        "category": "residential-construction",
+        "projectType": "Residential construction",
+        "status": "published",
+        "isPlaceholder": true,
+        "location": "",
+        "yearCompleted": "",
+        "client": "",
+        "summary": "Placeholder entry showing how a completed residential project will be presented.",
+        "description": [
+          "This entry is a layout placeholder. Once a verified project record and the corresponding photographs are supplied, this space will carry the project name, location, scope of works, completion details and the story of how it was built.",
+          "No project name, location, date, value or specification has been published here, because none has been verified with the company."
+        ],
+        "scope": [
+          "Scope of works to be confirmed",
+          "Materials and specification to be confirmed",
+          "Programme to be confirmed"
+        ],
+        "cover": {
+          "src": "/images/p1-a-1400.webp",
+          "srcset": "/images/p1-a-1400.webp 1400w, /images/p1-a-900.webp 900w, /images/p1-a-600.webp 600w",
+          "width": 1400,
+          "height": 934,
+          "alt": "Contemporary residence exterior with pool and terrace — reference imagery",
+          "focal": "50% 50%",
+          "caption": "Reference imagery — not a TOC project"
+        },
+        "gallery": [
+          {
+            "src": "/images/p1-a-1400.webp",
+            "srcset": "/images/p1-a-1400.webp 1400w, /images/p1-a-900.webp 900w, /images/p1-a-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Contemporary residence exterior with pool and terrace — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p1-b-1400.webp",
+            "srcset": "/images/p1-b-1400.webp 1400w, /images/p1-b-900.webp 900w, /images/p1-b-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Dining area with bespoke joinery — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p1-c-1400.webp",
+            "srcset": "/images/p1-c-1400.webp 1400w, /images/p1-c-900.webp 900w, /images/p1-c-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Lounge opening onto a pool terrace — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          }
+        ],
+        "order": 0
+      },
+      {
+        "slug": "portfolio-entry-02",
+        "title": "Portfolio Entry 02",
+        "category": "residential-construction",
+        "projectType": "Residential construction",
+        "status": "published",
+        "isPlaceholder": true,
+        "location": "",
+        "yearCompleted": "",
+        "client": "",
+        "summary": "Placeholder entry for a two-storey residential build.",
+        "description": [
+          "This entry is a layout placeholder. Once a verified project record and the corresponding photographs are supplied, this space will carry the project name, location, scope of works, completion details and the story of how it was built.",
+          "No project name, location, date, value or specification has been published here, because none has been verified with the company."
+        ],
+        "scope": [
+          "Scope of works to be confirmed",
+          "Materials and specification to be confirmed",
+          "Programme to be confirmed"
+        ],
+        "cover": {
+          "src": "/images/p2-a-1400.webp",
+          "srcset": "/images/p2-a-1400.webp 1400w, /images/p2-a-900.webp 900w, /images/p2-a-600.webp 600w",
+          "width": 1400,
+          "height": 934,
+          "alt": "Two-storey residence with landscaped frontage — reference imagery",
+          "focal": "50% 50%",
+          "caption": "Reference imagery — not a TOC project"
+        },
+        "gallery": [
+          {
+            "src": "/images/p2-a-1400.webp",
+            "srcset": "/images/p2-a-1400.webp 1400w, /images/p2-a-900.webp 900w, /images/p2-a-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Two-storey residence with landscaped frontage — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p2-b-1400.webp",
+            "srcset": "/images/p2-b-1400.webp 1400w, /images/p2-b-900.webp 900w, /images/p2-b-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Residential elevation with mature planting — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p2-c-1400.webp",
+            "srcset": "/images/p2-c-1400.webp 1400w, /images/p2-c-900.webp 900w, /images/p2-c-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Kitchen with island and integrated appliances — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          }
+        ],
+        "order": 1
+      },
+      {
+        "slug": "portfolio-entry-03",
+        "title": "Portfolio Entry 03",
+        "category": "luxury-residential-homes",
+        "projectType": "Luxury residential home",
+        "status": "published",
+        "isPlaceholder": true,
+        "location": "",
+        "yearCompleted": "",
+        "client": "",
+        "summary": "Placeholder entry for a private residence with pool and terrace.",
+        "description": [
+          "This entry is a layout placeholder. Once a verified project record and the corresponding photographs are supplied, this space will carry the project name, location, scope of works, completion details and the story of how it was built.",
+          "No project name, location, date, value or specification has been published here, because none has been verified with the company."
+        ],
+        "scope": [
+          "Scope of works to be confirmed",
+          "Finishing specification to be confirmed",
+          "Programme to be confirmed"
+        ],
+        "cover": {
+          "src": "/images/p3-a-1400.webp",
+          "srcset": "/images/p3-a-1400.webp 1400w, /images/p3-a-900.webp 900w, /images/p3-a-600.webp 600w",
+          "width": 1400,
+          "height": 934,
+          "alt": "Modern residence with timber ceiling and pool — reference imagery",
+          "focal": "50% 50%",
+          "caption": "Reference imagery — not a TOC project"
+        },
+        "gallery": [
+          {
+            "src": "/images/p3-a-1400.webp",
+            "srcset": "/images/p3-a-1400.webp 1400w, /images/p3-a-900.webp 900w, /images/p3-a-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Modern residence with timber ceiling and pool — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p3-b-1400.webp",
+            "srcset": "/images/p3-b-1400.webp 1400w, /images/p3-b-900.webp 900w, /images/p3-b-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Open-plan kitchen and living space — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p3-c-1400.webp",
+            "srcset": "/images/p3-c-1400.webp 1400w, /images/p3-c-900.webp 900w, /images/p3-c-600.webp 600w",
+            "width": 1400,
+            "height": 2100,
+            "alt": "Bathroom with stone finishes — reference imagery",
+            "focal": "50% 40%",
+            "caption": "Reference imagery — not a TOC project"
+          }
+        ],
+        "order": 2
+      },
+      {
+        "slug": "portfolio-entry-04",
+        "title": "Portfolio Entry 04",
+        "category": "luxury-residential-homes",
+        "projectType": "Luxury residential home",
+        "status": "published",
+        "isPlaceholder": true,
+        "location": "",
+        "yearCompleted": "",
+        "client": "",
+        "summary": "Placeholder entry for a courtyard house with full-height glazing.",
+        "description": [
+          "This entry is a layout placeholder. Once a verified project record and the corresponding photographs are supplied, this space will carry the project name, location, scope of works, completion details and the story of how it was built.",
+          "No project name, location, date, value or specification has been published here, because none has been verified with the company."
+        ],
+        "scope": [
+          "Scope of works to be confirmed",
+          "Joinery package to be confirmed",
+          "Programme to be confirmed"
+        ],
+        "cover": {
+          "src": "/images/p4-a-1400.webp",
+          "srcset": "/images/p4-a-1400.webp 1400w, /images/p4-a-900.webp 900w, /images/p4-a-600.webp 600w",
+          "width": 1400,
+          "height": 934,
+          "alt": "Timber-clad house with walled courtyard — reference imagery",
+          "focal": "50% 50%",
+          "caption": "Reference imagery — not a TOC project"
+        },
+        "gallery": [
+          {
+            "src": "/images/p4-a-1400.webp",
+            "srcset": "/images/p4-a-1400.webp 1400w, /images/p4-a-900.webp 900w, /images/p4-a-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Timber-clad house with walled courtyard — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p4-b-1400.webp",
+            "srcset": "/images/p4-b-1400.webp 1400w, /images/p4-b-900.webp 900w, /images/p4-b-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Living room with full-height glazing — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p4-c-1400.webp",
+            "srcset": "/images/p4-c-1400.webp 1400w, /images/p4-c-900.webp 900w, /images/p4-c-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "House facade lit at dusk — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          }
+        ],
+        "order": 3
+      },
+      {
+        "slug": "portfolio-entry-05",
+        "title": "Portfolio Entry 05",
+        "category": "structural-works",
+        "projectType": "Structural works",
+        "status": "published",
+        "isPlaceholder": true,
+        "location": "",
+        "yearCompleted": "",
+        "client": "",
+        "summary": "Placeholder entry for a ground slab and structural package.",
+        "description": [
+          "This entry is a layout placeholder. Once a verified project record and the corresponding photographs are supplied, this space will carry the project name, location, scope of works, completion details and the story of how it was built.",
+          "No project name, location, date, value or specification has been published here, because none has been verified with the company."
+        ],
+        "scope": [
+          "Scope of works to be confirmed",
+          "Engineering input to be confirmed",
+          "Programme to be confirmed"
+        ],
+        "cover": {
+          "src": "/images/p5-a-1400.webp",
+          "srcset": "/images/p5-a-1400.webp 1400w, /images/p5-a-900.webp 900w, /images/p5-a-600.webp 600w",
+          "width": 1400,
+          "height": 934,
+          "alt": "Ground slab and structure works with a site team — reference imagery",
+          "focal": "50% 50%",
+          "caption": "Reference imagery — not a TOC project"
+        },
+        "gallery": [
+          {
+            "src": "/images/p5-a-1400.webp",
+            "srcset": "/images/p5-a-1400.webp 1400w, /images/p5-a-900.webp 900w, /images/p5-a-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Ground slab and structure works with a site team — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p5-b-1400.webp",
+            "srcset": "/images/p5-b-1400.webp 1400w, /images/p5-b-900.webp 900w, /images/p5-b-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Reinforcement cages and formwork on site — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p5-c-1400.webp",
+            "srcset": "/images/p5-c-1400.webp 1400w, /images/p5-c-900.webp 900w, /images/p5-c-600.webp 600w",
+            "width": 1400,
+            "height": 2100,
+            "alt": "Drawings reviewed on site documentation — reference imagery",
+            "focal": "50% 40%",
+            "caption": "Reference imagery — not a TOC project"
+          }
+        ],
+        "order": 4
+      },
+      {
+        "slug": "portfolio-entry-06",
+        "title": "Portfolio Entry 06",
+        "category": "structural-works",
+        "projectType": "Structural works",
+        "status": "published",
+        "isPlaceholder": true,
+        "location": "",
+        "yearCompleted": "",
+        "client": "",
+        "summary": "Placeholder entry for a reinforced concrete frame package.",
+        "description": [
+          "This entry is a layout placeholder. Once a verified project record and the corresponding photographs are supplied, this space will carry the project name, location, scope of works, completion details and the story of how it was built.",
+          "No project name, location, date, value or specification has been published here, because none has been verified with the company."
+        ],
+        "scope": [
+          "Scope of works to be confirmed",
+          "Engineering input to be confirmed",
+          "Programme to be confirmed"
+        ],
+        "cover": {
+          "src": "/images/p6-a-1400.webp",
+          "srcset": "/images/p6-a-1400.webp 1400w, /images/p6-a-900.webp 900w, /images/p6-a-600.webp 600w",
+          "width": 1400,
+          "height": 934,
+          "alt": "Dark contemporary residence among mature trees — reference imagery",
+          "focal": "50% 50%",
+          "caption": "Reference imagery — not a TOC project"
+        },
+        "gallery": [
+          {
+            "src": "/images/p6-a-1400.webp",
+            "srcset": "/images/p6-a-1400.webp 1400w, /images/p6-a-900.webp 900w, /images/p6-a-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Dark contemporary residence among mature trees — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p6-b-1400.webp",
+            "srcset": "/images/p6-b-1400.webp 1400w, /images/p6-b-900.webp 900w, /images/p6-b-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Residence beneath a mature canopy — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          },
+          {
+            "src": "/images/p6-c-1400.webp",
+            "srcset": "/images/p6-c-1400.webp 1400w, /images/p6-c-900.webp 900w, /images/p6-c-600.webp 600w",
+            "width": 1400,
+            "height": 934,
+            "alt": "Interior joinery detail — reference imagery",
+            "focal": "50% 50%",
+            "caption": "Reference imagery — not a TOC project"
+          }
+        ],
+        "order": 5
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Our Process",
+    "heading": "What happens after you ",
+    "headingAccent": "get in touch",
+    "intro": "Four stages, in plain language, so you know what to expect and what we need from you at each point.",
+    "notice": "These four stages describe how enquiries are handled in draft form. TOC will confirm and adjust them to match the company's actual procedures before launch.",
+    "stages": [
+      {
+        "index": "01",
+        "title": "Consultation",
+        "description": "We start with a conversation about the site, the scope and what you are trying to achieve. Bring drawings if you have them; if you do not, we will tell you exactly what information is needed to move forward.",
+        "outcome": "A clear understanding of scope, and the information still required"
+      },
+      {
+        "index": "02",
+        "title": "Planning",
+        "description": "The scope of work is confirmed together with the sequence of activities, materials and finishing standards, and the basis of the quotation. Site conditions are confirmed with a visit where required.",
+        "outcome": "A written scope and quotation"
+      },
+      {
+        "index": "03",
+        "title": "Execution",
+        "description": "Work proceeds in defined stages once the scope is agreed. You receive progress updates as the work moves, and any change that affects cost or programme is raised with you before it is carried out.",
+        "outcome": "Staged, supervised construction work with progress reporting"
+      },
+      {
+        "index": "04",
+        "title": "Review & Handover",
+        "description": "Completed work is reviewed against the agreed scope and specification, outstanding items are listed and closed out, and the project is handed over with the agreed documentation.",
+        "outcome": "A documented review, close-out of outstanding items and handover"
+      }
+    ]
+  },
+  "reviews": {
+    "eyebrow": "Reputation",
+    "heading": "What clients say, ",
+    "headingAccent": "as published on Google",
+    "intro": "We publish the rating that appears on the company’s own Google Maps business listing, with the source named. We do not reproduce individual review text here until each quotation has been verified against the live review and its attribution is appropriate.",
+    "rating": {
+      "value": 4.7,
+      "count": 58,
+      "max": 5,
+      "source": "Google Maps",
+      "sourceUrl": "https://maps.app.goo.gl/p3aUfcG9oYq8D1zx8",
+      "note": "Rating and review count as published on the company’s Google Maps listing. This figure is a written record, not a live feed, and is updated when the listing is reviewed."
+    },
+    "excerpts": []
+  },
+  "faqs": {
+    "eyebrow": "Questions",
+    "heading": "Before you ",
+    "headingAccent": "get in touch",
+    "items": [
+      {
+        "question": "What information do you need to prepare a quotation?",
+        "answer": "Useful starting points are the site location, the type of project, any drawings or plans you already have, and the level of finish you have in mind. If you do not have drawings yet, tell us what you want to build and where — we will explain what is needed next. You can send details through the inquiry form or directly on WhatsApp."
+      },
+      {
+        "question": "How do I start a construction project with TOC?",
+        "answer": "Send an inquiry or request a consultation. We will discuss the site, scope and budget direction, then confirm what happens next. Nothing becomes a commitment until the scope and quotation have been agreed in writing."
+      },
+      {
+        "question": "Do you work outside Osogbo?",
+        "answer": "Our office is at USTEEM Junction, Agunbelewo, Osogbo, Osun State. Projects further afield are considered case by case — contact us with the location and scope and we will confirm whether we can take the work on."
+      },
+      {
+        "question": "Can I send drawings or photographs with my inquiry?",
+        "answer": "Yes. Secure upload can be enabled on the inquiry form once a storage endpoint is configured for it. In the meantime, the quickest route is to submit the form and continue the conversation on WhatsApp, where you can attach plans and photographs directly."
+      },
+      {
+        "question": "Can I book a consultation online?",
+        "answer": "You can send a consultation request with your preferred date and time band. This is a request, not a confirmed appointment: we review it and confirm an actual time with you by phone or WhatsApp."
+      },
+      {
+        "question": "Are the projects in the gallery TOC projects?",
+        "answer": "Not yet. The portfolio is being prepared and currently uses licensed reference photography as layout placeholders — no company project name, location, date or value is published until it has been verified with TOC."
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "breadcrumb": "Contact",
+      "heading": "Start with a ",
+      "headingAccent": "conversation",
+      "intro": "Call, message on WhatsApp, or send the inquiry form below. However you reach us, the first step is understanding what you want to build and what stage you are at."
+    },
+    "inquiry": {
+      "eyebrow": "Request a quote",
+      "heading": "Tell us about ",
+      "headingAccent": "your project",
+      "intro": "The more you can tell us about the site, the scope and the standard you expect, the more useful our first response will be. Fields marked * are required.",
+      "submitLabel": "Send my inquiry"
+    }
+  },
+  "consultation": {
+    "hero": {
+      "eyebrow": "Consultation",
+      "breadcrumb": "Consultation",
+      "heading": "Request a ",
+      "headingAccent": "consultation",
+      "intro": "A first conversation about the site, the brief and what is realistically achievable. Send your preferences and we will confirm a time that works."
+    },
+    "eyebrow": "Consultation request",
+    "heading": "Book a ",
+    "headingAccent": "conversation",
+    "intro": "Send a request with the date and time band that suits you. We will review it and confirm an actual time by phone or WhatsApp.",
+    "notice": "No live availability is shown on this site, and no appointment exists until TOC confirms a specific time with you. There is no charge for a first conversation.",
+    "submitLabel": "Send request"
+  },
+  "cta": {
+    "contactBand": {
+      "eyebrow": "Start a project",
+      "title": "Tell us what you are building. We will take it from there.",
+      "body": "Share the site, the scope and the outcome you have in mind. If you are still at the planning stage, that is a good time to talk — decisions are cheaper before work starts than after.",
+      "primaryLabel": "Request a Quote",
+      "secondaryLabel": "WhatsApp Us"
+    },
+    "about": {
+      "eyebrow": "Work with us",
+      "title": "Bring us the brief, the plot or the drawings.",
+      "body": "However far along your project is, the first conversation is about scope and feasibility. Tell us where things stand and we will tell you what happens next.",
+      "primaryLabel": "Request a Quote",
+      "secondaryLabel": "Request a Consultation"
+    },
+    "services": {
+      "eyebrow": "Enquire",
+      "title": "Which of these fits your project?",
+      "body": "Send the site, the scope and your stage of preparation. We will confirm what applies and what the next step looks like.",
+      "primaryLabel": "Request a Quote",
+      "secondaryLabel": "Request a Consultation"
+    },
+    "projects": {
+      "eyebrow": "Similar project",
+      "title": "Planning something comparable?",
+      "body": "Tell us what you are building and where. We will tell you what the work involves, what information we need, and how we would approach it.",
+      "primaryLabel": "Request a Quote",
+      "secondaryLabel": "Request a Consultation"
+    },
+    "consultation": {
+      "eyebrow": "Ready now?",
+      "title": "Send the details instead.",
+      "body": "If you already know the scope, the inquiry form collects everything needed for a first assessment and a quotation basis.",
+      "primaryLabel": "Request a Quote",
+      "secondaryLabel": "View Services"
+    },
+    "projectDetail": {
+      "heading": "Discuss a similar project",
+      "body": "Tell us what you are planning and we will explain how the work would be approached."
+    }
+  },
+  "footer": {
+    "intro": "A construction company based in Osogbo, Osun State, delivering building construction, luxury residential homes, structural works, and project supervision and consultancy.",
+    "tagline": "Building with purpose. Designed to last."
+  },
+  "forms": {
+    "serviceOptions": [
+      "Building Construction",
+      "Luxury Residential Homes",
+      "Civil Engineering & Structural Works",
+      "Project Supervision & Consultancy",
+      "Something else / not sure yet"
+    ],
+    "projectTypeOptions": [
+      "Residential construction",
+      "Luxury residential home",
+      "Structural / civil works",
+      "Renovation or extension",
+      "Project supervision or consultancy",
+      "Other / not sure yet"
+    ],
+    "budgetOptions": [
+      "Not yet determined",
+      "Under ₦5 million",
+      "₦5 million – ₦15 million",
+      "₦15 million – ₦50 million",
+      "₦50 million – ₦150 million",
+      "Above ₦150 million",
+      "Prefer not to say"
+    ],
+    "timeOptions": [
+      "Morning",
+      "Afternoon",
+      "Late afternoon",
+      "Flexible / any time"
+    ]
+  },
+  "privacy": {
+    "eyebrow": "Privacy",
+    "breadcrumb": "Privacy policy",
+    "heading": "Privacy ",
+    "headingAccent": "policy",
+    "intro": "This page explains what happens to the information you enter on this website, and what does not happen to it. It is written to match how the site is actually built.",
+    "sections": [
+      {
+        "heading": "Cookies, analytics and advertising",
+        "paragraphs": [
+          "This website sets no tracking or advertising cookies and runs no analytics scripts. There is no profiling, no remarketing pixel and no third-party tag manager.",
+          "We do not sell, rent or share your information with anyone for marketing purposes."
+        ]
+      },
+      {
+        "heading": "Information you provide",
+        "paragraphs": [
+          "The inquiry form collects your name, phone number, email address (optional), the service and project type you select, the project location, an optional budget range, an optional preferred consultation date, and your project description. The consultation form collects your name, contact details, the service of interest, a preferred date and time band, the project location and optional notes.",
+          "Please do not include sensitive personal information in the free-text fields. If you would rather not use the forms at all, you can reach us by phone or WhatsApp."
+        ]
+      },
+      {
+        "heading": "Signing in to the admin area",
+        "paragraphs": [
+          "The administration area is for TOC staff only. Signing in sets a single essential cookie that keeps the session active; it contains no personal information and no tracking identifiers. Login attempts are rate-limited, and the session cookie is sent only over a secure connection when the site is served over HTTPS."
+        ]
+      },
+      {
+        "heading": "Attachments",
+        "paragraphs": [
+          "If you send drawings or photographs, please share only what is necessary for the assessment — for example a plan or a site photograph rather than full legal documents."
+        ]
+      },
+      {
+        "heading": "WhatsApp, maps and third parties",
+        "paragraphs": [
+          "Buttons and links labelled WhatsApp open wa.me with a pre-filled message. Once you send it, the conversation is hosted by WhatsApp (Meta) and is governed by their privacy terms — TOC no longer controls that data. Nothing is sent automatically.",
+          "The map on the contact page loads from OpenStreetMap only after you press \"Load the map\". Until then, no request is made to that provider. Links out to Google Maps open Google’s own site and are subject to Google’s terms."
+        ]
+      },
+      {
+        "heading": "How long information is kept",
+        "paragraphs": [
+          "Project enquiries and consultation requests are kept by {{company}} for as long as needed to respond to you and to manage any resulting project or quotation. You can ask for your details to be deleted at any time by calling {{phone}}."
+        ]
+      },
+      {
+        "heading": "Your choices",
+        "paragraphs": [
+          "You can contact the company without using this website at all, by calling {{phone}} or sending a message on WhatsApp. You can ask what information the company holds about you and ask for corrections or deletion."
+        ]
+      },
+      {
+        "heading": "Changes to this policy",
+        "paragraphs": [
+          "If the way this site handles information changes — for example when a new integration is connected — this page will be updated before that change goes live."
+        ]
+      }
+    ],
+    "note": "This policy describes the site as built. Please review and approve it (or supply your own) before launch, and update it whenever new integrations are connected."
+  }
+}

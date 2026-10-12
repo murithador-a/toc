@@ -1,0 +1,6 @@
+# TOC Luxury Constructions Ltd
+User-agent: *
+Allow: /
+Disallow: /consultation?*preview*
+
+Sitemap: https://www.tocluxuryconstructions.com/sitemap.xml
