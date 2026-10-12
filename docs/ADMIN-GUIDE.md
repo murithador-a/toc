@@ -365,8 +365,10 @@ The site is deliberately careful about claims. Please keep it that way:
 - **Behind a proxy:** set `TRUST_PROXY=true` so rate limits and the login lockout see real client IPs.
 - **Serving:** `npm run build && NODE_ENV=production npm start` serves the site and the API from one
   port; put TLS in front of it. Never serve this over plain HTTP.
-- **Health check:** `GET /api/health` reports whether an admin credential is configured and which
-  content file is in use.
+- **Health check:** `GET /api/health` reports whether an admin credential is configured, which content
+  file is in use, whether a built site is present (`site: "built"`) and whether this deployment can
+  store anything (`storage: "writable"` or `"read-only"`). `npm run doctor` prints the same picture as
+  a checklist and names the fix for each failure.
 - **Logs:** the server logs each content save, each received enquiry, first-run password creation and
   each password reset. It never logs passwords, reset codes or enquiry contents.
 - **Password resets:** a code lives in `server/data/reset.json` as a SHA-256 hash with a 30-minute
@@ -376,6 +378,28 @@ The site is deliberately careful about claims. Please keep it that way:
   `auth.json`. **Losing every credential is recoverable**: delete `server/data/auth.json` and the
   first-run screen returns — but so does anyone else who can reach the server, so do it with the site
   offline and set a new password immediately.
+### If changes will not save on the live site
+
+The admin is not a static page: it stores content, the credential, images and enquiries as **files on
+the server**. A host with nowhere to write cannot run it, however well it serves the site.
+
+1. Run `npm run doctor` **on the host**, in the project directory, with the environment the running
+   process uses. It checks the build, the content file, writability, the credential, `SESSION_SECRET`,
+   `TRUST_PROXY` and the port, and prints the fix for anything it marks **FAIL**.
+2. If it reports that storage is not writable, the deployment is running from a read-only or
+   disposable filesystem. Point `DATA_DIR` and `UPLOADS_DIR` at a persistent mounted volume and
+   restart — `DATA_DIR=/var/data`, `UPLOADS_DIR=/var/data/uploads`.
+3. If the sign-in screen instead shows **“Set up the admin password”**, nothing is broken:
+   `server/data/` is deliberately not in the repository, so a fresh deployment always starts empty.
+   Set the password there once, or set `ADMIN_PASSWORD` in the host's environment variables.
+4. If `/admin` says the API cannot be reached, the admin was not deployed at all — a static host such
+   as Vercel, Netlify or GitHub Pages has no Node process to answer `/api/*`. See README §9.
+
+In the admin itself, **Settings → This installation** shows “Saving changes” and “Site build”, so the
+two questions that matter — *can this deployment store anything?* and *is a built site being served?*
+— are answered on the screen rather than in a log. When a save fails because the disk is read-only,
+the message names the directory to fix; it never shows a bare `EACCES`.
+
 - **Embedding:** the site and the admin may be shown inside another page's frame by default
   (`EMBEDDABLE=true`), which is what makes preview panels work. Set `EMBEDDABLE=false` to send
   `X-Frame-Options: SAMEORIGIN` on `/admin` and refuse to be framed once the real domain is live.

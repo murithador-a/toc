@@ -390,3 +390,46 @@ direct API exercise of every account endpoint:
 | A split heading could not be typed over at all — the element holds two fields | The exact text node under the pointer is resolved, so each line edits its own field; decorative `aria-hidden` children no longer block in-place editing |
 | `field` rows opened collapsed, so “the new entry is ready to type” was a promise the screen did not keep | `?open=<list>&row=<n>` opens the new row on arrival |
 
+
+---
+
+## 7.9 Deployment hardening — “the admin is not working when I want to deploy”
+
+The admin is not a static app: it keeps content, the administrator credential, uploads and enquiries as
+files. Reproducing a real host reproduced two genuine defects, both fixed here.
+
+**Reproduced before the fix.** Running the server with a non-writable data directory — what a container
+image, a serverless platform or any host that mounts the project read-only would give it — crashed the
+whole process at startup with an unhandled `EACCES: mkdir …/backups`. Nothing served at all: not the
+public site, not the admin. With a writable data directory but a read-only *content* path, the server
+started and then failed every write with a raw `EACCES`, which the admin could only render as a bare
+filesystem error naming no remedy.
+
+**Fixed**
+
+| Change | Files |
+| --- | --- |
+| Directory preparation can no longer kill the process; a failed write now surfaces as `STORAGE_READONLY` (HTTP 503) with a message naming the directory and the `DATA_DIR`/`UPLOADS_DIR` fix | `server/index.js`, `server/lib/store.js` |
+| The same explanation covers credential writes, image uploads and the missing-content-file case | `server/lib/auth.js`, `server/routes/uploads.js`, `server/routes/submissions.js` |
+| `GET /api/health` reports `storage: "writable" \| "read-only"`, `site: "built" \| "missing"` and `dataDir`, so a deployment can be judged from outside | `server/index.js`, `src/lib/api.ts` |
+| The startup log states plainly when storage is not writable or no built site is present, instead of leaving it to be discovered later | `server/index.js` |
+| Settings → “This installation” shows **Saving changes** and **Site build**, with a red block that explains a read-only deployment in the operator's terms | `src/admin/pages/Settings.tsx` |
+| `npm run doctor` — eight checks (Node, build, content file, writability, credential, `SESSION_SECRET`, `TRUST_PROXY`, port), blockers separated from recommendations, `--json` for a release gate, never prints a secret | `tools/doctor.mjs`, `package.json` |
+| `Dockerfile` + `.dockerignore` for container hosts, with `/var/data` as a volume and a health check | `Dockerfile`, `.dockerignore` |
+| README §9 rewritten: the four ways a deployment breaks the admin, the environment table, per-host notes, and an explicit statement that static hosting cannot run the admin | `README.md` |
+| `engines: { "node": ">=20" }` so hosts pick a supported runtime | `package.json` |
+
+**Verified**
+
+- Read-only data directory: the server starts, the public site and `GET /api/content` both answer `200`,
+  `/api/health` says `storage: "read-only"`, and setting the administrator password returns
+  `503 STORAGE_READONLY` with the directory and the fix in the message. The admin screen shows that
+  sentence in full (`docs/screenshots/admin-readonly-deployment.png`).
+- Healthy deployment: `/api/health` reports `storage: "writable"`, `site: "built"`;
+  `/`, `/projects`, `/admin`, `/contact` all `200` from the production build on one port.
+- `npm run doctor` on a broken deployment exits `1` with six blockers; on the healthy project it exits
+  `0` with only the two non-blocking recommendations (`SESSION_SECRET`, `TRUST_PROXY`).
+- Settings shows “Saving changes — changes are written to disk on this server” and
+  “Site build — Serving the built site from dist/”
+  (`docs/screenshots/admin-deployment-status.png`).
+- No regressions: `v4.mjs` 26/26, `regress.mjs` 16/16, `final.mjs` 7/7, zero console or page errors.

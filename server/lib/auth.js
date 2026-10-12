@@ -2,6 +2,7 @@ import crypto from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 import { config, paths } from './config.js'
+import { storageFailure } from './store.js'
 
 /**
  * Admin authentication.
@@ -102,8 +103,14 @@ export const readAccount = () => {
 export const writeAccount = (patch) => {
   const current = readAuthFile() ?? {}
   const next = { ...current, ...patch, updatedAt: new Date().toISOString() }
-  fs.mkdirSync(path.dirname(paths.auth), { recursive: true })
-  fs.writeFileSync(paths.auth, JSON.stringify(next, null, 2), { mode: 0o600 })
+  try {
+    fs.mkdirSync(path.dirname(paths.auth), { recursive: true })
+    fs.writeFileSync(paths.auth, JSON.stringify(next, null, 2), { mode: 0o600 })
+  } catch (error) {
+    // The administrator needs to know *why* their password or recovery address
+    // will not stick, not see an EACCES.
+    throw storageFailure('The account change', paths.auth, error)
+  }
   // `mode` above only applies when the file is created; re-assert it so an
   // existing file can never be left group- or world-readable.
   try {

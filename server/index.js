@@ -79,6 +79,12 @@ app.get('/api/health', (_req, res) => {
     adminConfigured: adminConfigured(),
     contentFile: path.relative(process.cwd(), config.contentFile),
     uptimeSeconds: Math.round(process.uptime()),
+    /** Can this deployment store changes (content, uploads, credentials)? */
+    storage: storage.writable ? 'writable' : 'read-only',
+    storageError: storage.error || undefined,
+    /** Is a built site present, or is this API-only (run `npm run build`)? */
+    site: fs.existsSync(path.join(config.distDir, 'index.html')) ? 'built' : 'missing',
+    dataDir: path.relative(process.cwd(), config.dataDir),
   })
 })
 
@@ -124,14 +130,46 @@ app.use((req, res) => {
 app.use((error, req, res, _next) => {
   console.error('[error]', error)
   if (res.headersSent) return
+  /**
+   * Storage failures are the one class of error whose message must survive into
+   * production: it names the directory that needs fixing and contains nothing
+   * sensitive. Every other error stays generic, so nothing leaks to a visitor.
+   */
+  const explainable = error?.code === 'STORAGE_READONLY'
   res.status(error.status || 500).json({
-    error: config.isProduction ? 'Something went wrong on the server.' : error.message,
+    error: explainable || !config.isProduction ? error.message : 'Something went wrong on the server.',
     code: error.code || 'SERVER_ERROR',
   })
 })
 
-fs.mkdirSync(paths.backups, { recursive: true })
-fs.mkdirSync(config.uploadsDir, { recursive: true })
+/**
+ * Storage readiness.
+ *
+ * A deployment with a read-only or ephemeral filesystem — a container, a serverless
+ * platform, a host that mounts the project as an image — used to crash here with an
+ * unhandled EACCES before it served a single request. That is the worst possible
+ * failure: the public site is perfectly servable without a writable disk.
+ *
+ * So: try to prepare the directories, report what happened, and keep going. The
+ * public site keeps working; the admin explains that it cannot store changes, and
+ * /api/health reports `storage`.
+ */
+const storage = { writable: false, error: '' }
+
+const prepareStorage = () => {
+  try {
+    fs.mkdirSync(paths.backups, { recursive: true })
+    fs.mkdirSync(config.uploadsDir, { recursive: true })
+    fs.mkdirSync(config.dataDir, { recursive: true })
+    fs.accessSync(config.dataDir, fs.constants.W_OK)
+    storage.writable = true
+  } catch (error) {
+    storage.writable = false
+    storage.error = String(error?.message ?? error)
+  }
+}
+
+prepareStorage()
 
 app.listen(config.port, config.host, () => {
   const url = `http://${config.host === '0.0.0.0' ? 'localhost' : config.host}:${config.port}`
@@ -144,6 +182,14 @@ app.listen(config.port, config.host, () => {
   )
   if (!config.isProduction && !process.env.SESSION_SECRET) {
     console.log('[server] note: SESSION_SECRET not set — sessions are derived from the stored credential.')
+  }
+  if (!storage.writable) {
+    console.warn('[server] STORAGE IS NOT WRITABLE — the public site will serve, but nothing can be saved.')
+    console.warn(`[server]   ${storage.error}`)
+    console.warn(`[server]   Set DATA_DIR and UPLOADS_DIR to a persistent, writable path (a mounted volume or disk).`)
+  }
+  if (config.isProduction && !fs.existsSync(path.join(config.distDir, 'index.html'))) {
+    console.warn('[server] No built site found in dist/ — serving the API only. Run: npm run build')
   }
 })
 

@@ -28,7 +28,11 @@ const readAll = () => {
 }
 
 const writeAll = (list) => {
-  fs.mkdirSync(path.dirname(FILE), { recursive: true })
+  try {
+    fs.mkdirSync(path.dirname(FILE), { recursive: true })
+  } catch {
+    /* read-only deployment — the write below reports it properly */
+  }
   const temp = `${FILE}.tmp`
   fs.writeFileSync(temp, JSON.stringify(list.slice(0, MAX_STORED), null, 2), { mode: 0o600 })
   fs.renameSync(temp, FILE)

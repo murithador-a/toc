@@ -302,6 +302,12 @@ export type HealthResponse = {
   adminConfigured: boolean
   contentFile: string
   uptimeSeconds: number
+  /** 'writable' when this deployment can store changes; 'read-only' when it cannot. */
+  storage?: 'writable' | 'read-only'
+  storageError?: string
+  /** 'built' when dist/ exists, 'missing' when the server is running without a built site. */
+  site?: 'built' | 'missing'
+  dataDir?: string
 }
 
 export const getHealth = () => request<HealthResponse>('/api/health', { csrf: false })

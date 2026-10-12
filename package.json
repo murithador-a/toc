@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Website for TOC Luxury Constructions Ltd, Osogbo, Osun State, Nigeria.",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "node tools/dev.mjs",
     "dev:site": "vite",
@@ -13,6 +16,7 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "content:validate": "node tools/validate-content.mjs",
+    "doctor": "node tools/doctor.mjs",
     "admin:hash": "node tools/hash-password.mjs"
   },
   "dependencies": {

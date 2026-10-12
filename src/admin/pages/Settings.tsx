@@ -283,6 +283,36 @@ export function Settings() {
             </dd>
           </div>
           <div>
+            <dt className="font-sans text-[0.625rem] uppercase tracking-eyebrow text-stone-500">
+              Saving changes
+            </dt>
+            <dd
+              className={`mt-1 font-sans text-[0.9375rem] ${
+                health && health.storage === 'read-only' ? 'text-[#8d3b2f]' : 'text-charcoal'
+              }`}
+            >
+              {!health
+                ? '—'
+                : health.storage === 'read-only'
+                  ? 'Not possible — this server cannot write to disk'
+                  : 'Possible — changes are written to disk on this server'}
+            </dd>
+          </div>
+          <div>
+            <dt className="font-sans text-[0.625rem] uppercase tracking-eyebrow text-stone-500">Site build</dt>
+            <dd
+              className={`mt-1 font-sans text-[0.9375rem] ${
+                health && health.site === 'missing' ? 'text-[#8d3b2f]' : 'text-charcoal'
+              }`}
+            >
+              {!health
+                ? '—'
+                : health.site === 'missing'
+                  ? 'No built site found — run: npm run build'
+                  : 'Serving the built site from dist/'}
+            </dd>
+          </div>
+          <div>
             <dt className="font-sans text-[0.625rem] uppercase tracking-eyebrow text-stone-500">Form submissions</dt>
             <dd className="mt-1 font-sans text-[0.9375rem] text-charcoal">
               Stored on this server and shown in Enquiries
@@ -293,6 +323,25 @@ export function Settings() {
             <dd className="mt-1 font-sans text-[0.9375rem] text-charcoal">Up to 8 MB per image, JPEG/PNG/WebP/AVIF</dd>
           </div>
         </dl>
+        {health?.storage === 'read-only' ? (
+          <div className="mt-5 border border-[#c9a49c] bg-[#FBF3F1] px-4 py-3">
+            <p className="font-sans text-[0.8125rem] font-semibold text-[#8d3b2f]">
+              This deployment cannot save anything.
+            </p>
+            <p className="mt-1 font-sans text-[0.8125rem] text-[#8d3b2f]">
+              The public site is being served, but changes, uploads and the administrator password all need a writable
+              directory and this server does not have one. On the host, point{' '}
+              <span className="font-mono text-[0.75rem]">DATA_DIR</span> and{' '}
+              <span className="font-mono text-[0.75rem]">UPLOADS_DIR</span> at a persistent disk (a mounted volume),
+              then restart. See “Deploying so the admin works” in README.md.
+            </p>
+            {health.storageError ? (
+              <p className="mt-2 break-words font-mono text-[0.6875rem] text-[#8d3b2f]">
+                Reported by the server: {health.storageError}
+              </p>
+            ) : null}
+          </div>
+        ) : null}
         <div className="mt-5 space-y-3">
           <InlineNotice>
             Submissions are stored in <span className="font-mono text-[0.75rem]">server/data/submissions.json</span> with

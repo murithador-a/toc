@@ -97,6 +97,7 @@ so the browser only ever talks to one origin — exactly as in production.
 | `npm run preview` | Vite's static preview of `dist/` (no API, no admin) |
 | `npm run typecheck` | Type-check only |
 | `npm run content:validate` | Validate `content/site.json` (structure, counts, required fields) |
+| `npm run doctor` | Check a deployment: build, content file, writable storage, credential, env, port. Run it on the host — see §9.1 |
 | `npm run admin:hash -- "…"` | Print an `ADMIN_PASSWORD_HASH` for `.env` |
 
 ### Regenerating the shipped photography
@@ -261,41 +262,106 @@ conversation to WhatsApp and does not confirm a booking, appointment or quotatio
 
 ## 9. Deployment
 
-Two supported shapes. Choose by whether the admin is wanted.
+The public site is plain static files. **The admin is not** — it reads and writes
+files on disk through the API, so it needs a long-lived Node process and one
+writable directory. That single fact decides everything below.
 
-### A. Node server (site + admin + API) — recommended
+### 9.1 Before you blame the app: run the doctor
+
+On the host, from the project directory, with the same environment the running
+process uses:
+
+```bash
+npm run doctor
+```
+
+It checks the eight things that actually break a deployment — build present,
+content file readable, storage writable, credential configured, `SESSION_SECRET`,
+`TRUST_PROXY`, the port — marks each **PASS** or **FAIL**, and prints the fix.
+`--json` gives machine-readable output for a release gate. It never prints a
+secret, only whether one exists.
+
+### 9.2 The four ways a deployment breaks the admin
+
+| Symptom | Cause | Fix |
+| --- | --- | --- |
+| `/admin` loads, but nothing saves; errors mention `EACCES`, `EROFS` or `read-only` | The disk is not writable (container image, serverless platform, read-only mount) | Point `DATA_DIR` and `UPLOADS_DIR` at a mounted, persistent volume and restart |
+| `/admin` shows **Create the administrator password** instead of the sign-in screen | Fresh data directory: `server/data/` is gitignored, so it never arrives with the code | Either run that one-time setup, or copy `server/data/auth.json` across (keep it `chmod 600`) |
+| The site loads but `/admin` only says the API cannot be reached | Static-only host (Vercel, Netlify, GitHub Pages, S3): there is no Node process, so `/api/*` does not exist | Deploy on a Node host instead (§9.3), or keep the admin off and manage content by editing `content/site.json` |
+| Every page is the site's own 404, or the server prints *"API is running"* | `dist/` was never built on the host — it is gitignored | Make `npm run build` part of the deploy (§9.3) |
+
+Signs of a stopped process are different again: the whole site is unreachable,
+not just the admin.
+
+### 9.3 A Node host (site + admin + API) — recommended
+
+This is the shape the project is built for: one process serves the built site,
+the API and `/admin` on one port, so the admin shares the site's origin.
 
 ```bash
 npm ci
-cp .env.example .env        # set ADMIN_PASSWORD and SESSION_SECRET
-npm run build
-NODE_ENV=production npm start   # serves dist/ and /api on one port (API_PORT, default 8787)
+cp .env.example .env          # then edit it — see below
+npm run build                 # dist/ is not committed; it is built here
+npm run doctor                # all blockers must pass
+npm start                     # NODE_ENV=production, serves dist/ + /api on API_PORT
 ```
 
-Then put a TLS-terminating reverse proxy in front (Nginx, Caddy, a PaaS router) and set
-`TRUST_PROXY=true` so client IPs and the login lockout behave correctly. The server already:
+Set in the host's environment (or `.env`):
 
-- sends `nosniff`, `X-Frame-Options`, Referrer-Policy, Permissions-Policy, and a `default-src 'none'`
-  CSP on `/api/*` and `/uploads/*`
-- serves unknown paths from `index.html` (SPA fallback) except `/api/*` and `/uploads/*`
-- caches `/uploads/*` for 30 days (filenames are random, so they are immutable)
+| Variable | Value | Why |
+| --- | --- | --- |
+| `API_PORT` | the port the host expects | `PORT` is honoured too, so a PaaS-assigned port works unchanged |
+| `HOST` | `0.0.0.0` | Required in a container; a reverse-proxy-only setup can use `127.0.0.1` |
+| `DATA_DIR` | a **mounted, persistent** path, e.g. `/var/data` | Content, credential, uploads and submissions live here |
+| `UPLOADS_DIR` | `${DATA_DIR}/uploads` | Uploaded images |
+| `SESSION_SECRET` | `openssl rand -hex 32` | Signs session cookies; without it sessions derive from the credential |
+| `TRUST_PROXY` | `true` behind a proxy/LB | So the login lockout sees real client IPs |
+| `ADMIN_PASSWORD` | *optional* | Set it to control the password from the environment; leave it empty to use the first-run screen at `/admin` instead |
 
-**Back up** `content/site.json`, `server/data/uploads/` and `server/data/submissions.json`. Nothing
-else is stateful.
+**Host notes.**
 
-### B. Static hosting (no admin)
+- **Render / Railway / Fly.io / Heroku-style PaaS:** build command `npm ci && npm run build`, start command `npm start`. Allocate a disk/volume and set `DATA_DIR` to its mount path — without it, every deploy and every restart starts from an empty data directory.
+- **A VPS (Ubuntu, etc.):** run it under `systemd` or `pm2` so it restarts, put Nginx or Caddy in front for TLS, set `TRUST_PROXY=true`. `DATA_DIR` can stay `server/data` as long as the service user owns it.
+- **Docker or any container host:** `Dockerfile` is included and declares `/var/data` as a volume:
+  ```bash
+  docker build -t toc-site .
+  docker run -p 8787:8787 -v toc-data:/var/data -e SESSION_SECRET=$(openssl rand -hex 32) toc-site
+  ```
+  `docker run --rm -v toc-data:/var/data toc-site npm run doctor` diagnoses a running volume.
 
-Build and upload `dist/` to any static host. Requirements:
+**Behind a reverse proxy**, the server already sends `nosniff`, `X-Frame-Options`,
+Referrer-Policy, Permissions-Policy and a `default-src 'none'` CSP on
+`/api/*` and `/uploads/*`, serves unknown paths from `index.html` (SPA fallback)
+except `/api/*` and `/uploads/*`, and caches `/uploads/*` for 30 days
+(filenames are random, so they are immutable).
+
+**Back up** `content/site.json`, `server/data/uploads/` and
+`server/data/submissions.json` — nothing else is stateful. The admin keeps the
+last 30 copies of the content file in `server/data/backups/` by itself.
+
+### 9.4 Static hosting (no admin)
+
+Build and upload `dist/` to any static host — Vercel, Netlify, Cloudflare Pages,
+GitHub Pages, S3. Requirements:
 
 1. **SPA fallback:** rewrite unknown paths to `/index.html` so client routes resolve.
-2. Before launch: set `VITE_SITE_URL` to the approved domain and update the same URL in `index.html`,
-   `public/robots.txt` and `public/sitemap.xml`.
+2. Set `VITE_SITE_URL` to the approved domain and update the same URL in
+   `index.html`, `public/robots.txt` and `public/sitemap.xml`.
 3. Add a long cache header for `/images/*` and `/fonts/*`.
 
-The site works fully; `/admin` will report that the API cannot be reached, and the forms fall back to
-the WhatsApp hand-off.
+The public site is fully functional: it reads the content bundled at build time
+and falls back to the WhatsApp hand-off for the forms. **`/admin` will not work
+here** — there is no Node process to serve `/api/*` and no disk to write to.
+Content changes are made by editing `content/site.json` and redeploying, or by
+running the Node shape (§9.3) somewhere and pointing the domain at it.
 
----
+### 9.5 Splitting the two (not supported yet)
+
+Serving the public site statically while the admin runs on a separate Node host
+would need a cross-origin API: a configurable API base URL in the client, CORS
+for the site's origin, and a decision about where the admin lives. It is
+deliberately not built — one origin is simpler and the admin is currently
+same-origin only. If it is ever wanted, it is a real change, not a flag.
 
 ## 10. Accessibility, performance and security notes
 

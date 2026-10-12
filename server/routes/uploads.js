@@ -101,7 +101,20 @@ uploadsRouter.post('/', requireCsrf, (req, res, next) => {
       const name = `${Date.now().toString(36)}-${crypto.randomBytes(6).toString('hex')}.${kind.ext}`
       const target = path.join(config.uploadsDir, name)
       fs.mkdirSync(config.uploadsDir, { recursive: true })
-      fs.writeFileSync(target, req.file.buffer, { mode: 0o644 })
+      try {
+        fs.writeFileSync(target, req.file.buffer, { mode: 0o644 })
+      } catch (error) {
+        if (['EACCES', 'EROFS', 'EPERM', 'ENOSPC'].includes(error?.code)) {
+          res.status(503).json({
+            error:
+              `The image could not be stored: ${config.uploadsDir} is not writable on this deployment (${error.code}). ` +
+              'Set UPLOADS_DIR to a persistent, writable path.',
+            code: 'STORAGE_READONLY',
+          })
+          return
+        }
+        throw error
+      }
 
       const size = imageSize(req.file.buffer)
       console.log(`[uploads] stored ${name} (${Math.round(req.file.buffer.length / 1024)} KB)`)

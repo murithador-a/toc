@@ -17,10 +17,22 @@ import { config, paths } from './config.js'
 
 const MAX_BACKUPS = 30
 
+/**
+ * Create the directories the store needs.
+ *
+ * Never throws. Reading must keep working on a read-only deployment — a container
+ * image, a serverless platform, a host that mounts the project as read-only — so
+ * that the public site still serves from the committed content file. Only *writes*
+ * fail there, and they fail with an explanation (see StorageError).
+ */
 const ensureDirs = () => {
-  fs.mkdirSync(path.dirname(config.contentFile), { recursive: true })
-  fs.mkdirSync(paths.backups, { recursive: true })
-  fs.mkdirSync(config.uploadsDir, { recursive: true })
+  for (const dir of [path.dirname(config.contentFile), paths.backups, config.uploadsDir, config.dataDir]) {
+    try {
+      fs.mkdirSync(dir, { recursive: true })
+    } catch {
+      /* read-only or already exists — writes surface the problem properly */
+    }
+  }
 }
 
 const safeParse = (text) => {
@@ -32,6 +44,22 @@ const safeParse = (text) => {
 }
 
 let cache = null
+
+/**
+ * Turn a filesystem failure into the one error an operator can act on. Used by
+ * every code path that writes to disk, so a read-only deployment always answers
+ * with the same explanation instead of a bare EACCES.
+ */
+export const storageFailure = (what, target, error) => {
+  if (['EACCES', 'EROFS', 'EPERM', 'ENOSPC'].includes(error?.code)) {
+    return new StorageError(
+      `${what} could not be saved: ${target} is not writable on this deployment (${error.code}). ` +
+        'Point DATA_DIR and UPLOADS_DIR at a persistent, writable path, then restart.',
+      error,
+    )
+  }
+  return error
+}
 
 export const readContent = () => {
   ensureDirs()
@@ -47,7 +75,12 @@ const backup = (reason) => {
   if (!fs.existsSync(config.contentFile)) return
   const stamp = new Date().toISOString().replace(/[:.]/g, '-')
   const target = path.join(paths.backups, `site-${stamp}-${reason}.json`)
-  fs.copyFileSync(config.contentFile, target)
+  try {
+    fs.copyFileSync(config.contentFile, target)
+  } catch {
+    // A missing rollback copy must never block a legitimate save.
+    return
+  }
 
   const files = fs
     .readdirSync(paths.backups)
@@ -58,16 +91,46 @@ const backup = (reason) => {
   }
 }
 
+/**
+ * Thrown when the deployment cannot write. Carries a code the routes turn into a
+ * useful HTTP answer, and a message that names the path — because "EACCES" tells
+ * an operator nothing about which directory to fix.
+ */
+export class StorageError extends Error {
+  constructor(message, cause) {
+    super(message)
+    this.name = 'StorageError'
+    this.code = 'STORAGE_READONLY'
+    this.status = 503
+    this.cause = cause
+  }
+}
+
+const guardStorage = (what, path) => (error) => {
+  if (error?.code === 'EACCES' || error?.code === 'EROFS' || error?.code === 'EPERM' || error?.code === 'ENOSPC') {
+    throw new StorageError(
+      `${what} could not be saved: ${path} is not writable on this deployment (${error.code}). ` +
+        'Point DATA_DIR and UPLOADS_DIR at a persistent, writable path.',
+      error,
+    )
+  }
+  throw error
+}
+
 export const writeContent = (content, { reason = 'save', client = 'admin' } = {}) => {
-  ensureDirs()
-  backup(reason)
   const next = {
     ...content,
     meta: { ...(content.meta || {}), version: (content.meta?.version ?? 0) + 1, updatedAt: new Date().toISOString() },
   }
   const temp = `${config.contentFile}.${crypto.randomBytes(6).toString('hex')}.tmp`
-  fs.writeFileSync(temp, `${JSON.stringify(next, null, 2)}\n`, { mode: 0o644 })
-  fs.renameSync(temp, config.contentFile) // atomic on the same filesystem
+  try {
+    ensureDirs()
+    backup(reason)
+    fs.writeFileSync(temp, `${JSON.stringify(next, null, 2)}\n`, { mode: 0o644 })
+    fs.renameSync(temp, config.contentFile) // atomic on the same filesystem
+  } catch (error) {
+    guardStorage('The change', config.contentFile)(error)
+  }
   cache = null
   console.log(`[content] saved by ${client} (${reason}) -> v${next.meta.version}`)
   return next
