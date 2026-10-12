@@ -118,12 +118,32 @@ async function request<T>(path: string, options: RequestOptions = {}): Promise<T
 
   const text = await response.text()
   let payload: unknown = null
+  let parsed = false
   if (text) {
     try {
       payload = JSON.parse(text)
+      parsed = true
     } catch {
       payload = null
     }
+  }
+
+  /**
+   * A body that is not JSON means the request never reached this API. Two common
+   * causes: a static host (Vercel, Netlify, GitHub Pages) rewriting every path,
+   * `/api/*` included, to index.html — or a proxy answering for a server that is
+   * down. Left alone, that HTML falls through as `null` and produces nonsense
+   * several screens later: an admin offering to set a password it cannot store,
+   * or a field showing the literal "[object Object]". Say what is wrong instead.
+   */
+  if (text && !parsed) {
+    throw new ApiError(
+      response.status,
+      'The admin API did not answer: the request for ' +
+        path +
+        ' came back as a web page rather than data. That is what happens when the site is on a static host (Vercel, Netlify, Cloudflare Pages, GitHub Pages), which serves the site but cannot run the admin — or when a proxy is in front of a server that is not running. See docs/DEPLOY.md.',
+      'NO_API',
+    )
   }
 
   if (!response.ok) {

@@ -20,6 +20,25 @@ type Props = {
   onChange: (next: unknown) => void
 }
 
+/**
+ * The text a text input can safely hold.
+ *
+ * Strings pass through, and numbers and booleans show as themselves. Anything
+ * structured is deliberately shown as empty instead of `String(value)`: that
+ * produces the literal "[object Object]" in the box, which tells an editor
+ * nothing and hides the real problem (the field holds the wrong kind of data —
+ * usually a content file edited by hand or by the raw-JSON screen).
+ */
+const textValue = (value: unknown): string => {
+  if (typeof value === 'string') return value
+  if (typeof value === 'number' || typeof value === 'boolean') return String(value)
+  return ''
+}
+
+/** True when a field that should hold a sentence holds a structure instead. */
+const holdsStructuredData = (value: unknown): boolean =>
+  value !== null && typeof value === 'object'
+
 export function FieldRenderer({ field, value, onChange }: Props) {
   const id = useId()
   const current = getAt(value, field.path)
@@ -40,10 +59,21 @@ export function FieldRenderer({ field, value, onChange }: Props) {
   switch (field.kind) {
     case 'text':
       return (
-        <FieldRow label={field.label} help={field.help} htmlFor={id} wide={field.wide} field={field.path}>
+        <FieldRow
+          label={field.label}
+          help={field.help}
+          htmlFor={id}
+          wide={field.wide}
+          field={field.path}
+          error={
+            holdsStructuredData(current)
+              ? 'This field holds structured data where the site expects a line of text, so nothing is shown here. Use Quick find (Ctrl + K) → “Show the raw JSON” to inspect the document, or ask whoever last edited the content file.'
+              : undefined
+          }
+        >
           <TextInput
             id={id}
-            value={typeof current === 'string' ? current : current === undefined || current === null ? '' : String(current)}
+            value={textValue(current)}
             onChange={write}
             placeholder={field.placeholder}
             maxLength={field.maxLength}

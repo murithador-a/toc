@@ -35,6 +35,12 @@ type AdminContextValue = {
   session: SessionState | null
   sessionLoading: boolean
   refreshSession: () => Promise<void>
+  /**
+   * Set when the session request could not reach an API at all — a static host
+   * serving the site has no /api, and no password form can help there. `null`
+   * once the API answers.
+   */
+  apiProblem: string | null
   signOut: () => Promise<void>
 
   content: ContentRecord | null
@@ -81,6 +87,7 @@ const rank: Record<SaveState, number> = { error: 4, saving: 3, pending: 2, saved
 export function AdminProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<SessionState | null>(null)
   const [sessionLoading, setSessionLoading] = useState(true)
+  const [apiProblem, setApiProblem] = useState<string | null>(null)
   const [content, setContent] = useState<ContentRecord | null>(null)
   const [contentLoading, setContentLoading] = useState(true)
   const [contentError, setContentError] = useState<string | null>(null)
@@ -124,13 +131,28 @@ export function AdminProvider({ children }: { children: ReactNode }) {
     setSessionLoading(true)
     try {
       setSession(await getSession())
-    } catch {
-      setSession({
-        configured: true,
-        signedIn: false,
-        expiresAt: null,
-        reset: { available: true, hasEmail: false, transport: 'none', minutes: 30 },
-      })
+      setApiProblem(null)
+    } catch (cause) {
+      /**
+       * Two different failures used to look identical. A refused or failed
+       * request against a running API means "the session is gone, show the
+       * sign-in form". A response that is not JSON, or no response at all,
+       * means the request never reached an API — a static host serving this
+       * site has no /api. There, the sign-in form is a dead end, so we record
+       * the reason and let the screen explain it rather than pretend.
+       */
+      const noApi = cause instanceof ApiError && (cause.code === 'NO_API' || cause.code === 'NETWORK')
+      setApiProblem(noApi ? cause.message : null)
+      setSession(
+        noApi
+          ? null
+          : {
+              configured: true,
+              signedIn: false,
+              expiresAt: null,
+              reset: { available: true, hasEmail: false, transport: 'none', minutes: 30 },
+            },
+      )
     } finally {
       setSessionLoading(false)
     }
@@ -313,6 +335,7 @@ export function AdminProvider({ children }: { children: ReactNode }) {
       session,
       sessionLoading,
       refreshSession,
+      apiProblem,
       signOut,
       content,
       contentLoading,
@@ -338,6 +361,7 @@ export function AdminProvider({ children }: { children: ReactNode }) {
       session,
       sessionLoading,
       refreshSession,
+      apiProblem,
       signOut,
       content,
       contentLoading,

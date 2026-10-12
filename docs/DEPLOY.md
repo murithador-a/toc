@@ -83,7 +83,8 @@ password”** — set it, and that is your sign-in from then on.
 | --- | --- | --- |
 | Something saves nothing; the message mentions `EACCES`, `EROFS`, `read-only`, or *“is not writable on this deployment”* | The filesystem is read-only or disposable — a container image, a serverless platform, a read-only mount | Mount a persistent disk, set `DATA_DIR` and `UPLOADS_DIR` to it, restart |
 | `/admin` shows **“Set up the admin password”** although you have been using the site for weeks | The deployment's data directory is new. `server/data/` is not in the repository, by design | Either set the password again there, or copy `server/data/auth.json` from your working installation (keep it `chmod 600`) |
-| `/admin` says the API cannot be reached, but the site is fine | There is no Node process — a static host, or the app is not running | Deploy on a Node host, or start the process |
+| `/admin` says **“The admin is not available here”** | The request for `/api/*` came back as a web page, not data: the site is on a static host (or a proxy is answering for a server that is down) | Deploy on a Node host, or start the process — see the table above |
+| A field in the admin displays `[object Object]`, or is empty with a note that it “holds structured data” | That field contains a structure where the site expects a line of text — almost always a hand-edited `content/site.json` | Open Quick find (Ctrl + K) → “Show the raw JSON” and correct the value, or restore one of the automatic copies in Settings |
 | The site shows the API's plain text *“API is running…”* on every page | `dist/` was never built on the host | Add `npm run build` to the deploy, or upload `dist/` |
 | Every page returns the site's own 404 page | SPA fallback missing on a static host | Rewrite unknown paths to `/index.html` |
 | Signed out after every deploy | `SESSION_SECRET` changes between deploys, or is unset | Set `SESSION_SECRET` once in the host's environment and leave it alone |

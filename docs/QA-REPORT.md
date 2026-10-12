@@ -433,3 +433,45 @@ filesystem error naming no remedy.
   “Site build — Serving the built site from dist/”
   (`docs/screenshots/admin-deployment-status.png`).
 - No regressions: `v4.mjs` 26/26, `regress.mjs` 16/16, `final.mjs` 7/7, zero console or page errors.
+
+## 7.10 The admin on a static host — the `[object Object]` report
+
+Reported as *“[object Object] when I try to sign in”* on a Vercel deployment. Reproduced by standing up
+two stand-in static hosts over the built `dist/`: the common Vercel shape (a catch-all rewrite sending
+every path, `/api/*` included, to `index.html`) and the stricter shape (a 404 HTML page for `/api/*`).
+
+**What the site does there.** `/api/*` returns a web page, so no admin API exists. The *public* site is
+unaffected — it keeps the content bundled at build time and falls back to the WhatsApp hand-off — which
+is exactly why this looked like “only the admin is broken”.
+
+**Two defects found**
+
+1. **The admin lied.** `refreshSession()` caught *any* failure and substituted a fabricated session
+   (`configured: true, signedIn: false`). With no API at all, the admin therefore offered the
+   first-run/sign-in form as if everything were fine; submitting it produced either the misleading
+   “Set up the admin password” screen again or the useless “Something went wrong. Please try again.”
+2. **`[object Object]` was real and reachable.** `FieldRenderer` rendered a text field as
+   `String(current)`. For a field holding a structure instead of a string — a hand-edited
+   `content/site.json`, or the raw-JSON screen — an `<input>` displays the literal text
+   `[object Object]`. Nothing else on that screen explained it.
+
+**Fixed**
+
+| Change | Files |
+| --- | --- |
+| A response body that is not JSON now raises `NO_API` naming the cause instead of falling through as `null` and producing nonsense several screens later | `src/lib/api.ts` |
+| The provider no longer invents a session when the API was never reached; it records the reason. A refused request against a running API still shows the ordinary sign-in form | `src/admin/AdminProvider.tsx` |
+| `/admin` on a host with no API now renders **“The admin is not available here”**: it names static hosting as the cause, says signing in is impossible until the site runs somewhere with Node, and points at `docs/DEPLOY.md`. No password field is offered | `src/admin/AdminApp.tsx` |
+| A text field holding structured data shows an empty box plus an explanation, never `[object Object]` | `src/admin/FieldRenderer.tsx` |
+
+**Verified**
+
+- Both static-host shapes: the public home page and `/projects` render normally (10 images, correct
+  headings); `/admin` shows “The admin is not available here”, says “static host”, offers no password
+  field, and displays no `[object Object]`
+  (`docs/screenshots/admin-static-host-explains-itself.png`).
+- A content document with an object in a text field: the Home screen shows the explanation in the field
+  instead of `[object Object]`
+  (`docs/screenshots/admin-structured-field-warning.png`).
+- No regressions: `v4.mjs` 26/26, `regress.mjs` 16/16, `final.mjs` 7/7, zero console or page errors;
+  `tsc --noEmit`, `npm run build` and `content:validate` all clean.

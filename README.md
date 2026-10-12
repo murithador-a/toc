@@ -353,10 +353,13 @@ GitHub Pages, S3. Requirements:
 3. Add a long cache header for `/images/*` and `/fonts/*`.
 
 The public site is fully functional: it reads the content bundled at build time
-and falls back to the WhatsApp hand-off for the forms. **`/admin` will not work
-here** — there is no Node process to serve `/api/*` and no disk to write to.
-Content changes are made by editing `content/site.json` and redeploying, or by
-running the Node shape (§9.3) somewhere and pointing the domain at it.
+and falls back to the WhatsApp hand-off for the forms.
+
+**`/admin` cannot work here** — there is no Node process to serve `/api/*`, and no
+disk to write to. Rather than offering a password form that could never accept
+one, `/admin` detects that the API is absent and says so plainly, naming static
+hosting as the cause. Content changes are made by editing `content/site.json` and
+redeploying, or by running the Node shape (§9.3) and pointing the domain at it.
 
 ### 9.5 Splitting the two (not supported yet)
 
